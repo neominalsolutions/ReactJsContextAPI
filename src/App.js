@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import UserProfilePage from './pages/UserProfilePage';
+import { ThemeProvider } from './store/contexts/ThemeContext';
+
+//ThemeProvider App.js dosyasında en dışa sararsak içinde kaç adet child component varsa otomatik olarak state değişikliğini algılamış olur.
 
 function App() {
+  // sadece değişen tema'nın değerini okuyacağımız için theme denilen state güncel değerine ihtiyacımız var. setTheme şuan ihtiyacımız yok.
+
+
+  // arka plan regi seçilen temeaya göre değişsin diyoruz.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <ThemeProvider>
+      <div className="App" style={{color:'yellow'}} >
+        <UserProfilePage />
+      </div>
+    </ThemeProvider>
+
   );
 }
 
