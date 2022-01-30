@@ -2,7 +2,10 @@ import { useContext } from 'react';
 import { Route, Routes } from 'react-router';
 import { Link } from 'react-router-dom';
 import './App.css';
+import AboutPage from './pages/AboutPage';
+import CardPage from './pages/CardPage';
 import UserProfilePage from './pages/UserProfilePage';
+import { CardProvider } from './store/contexts/CardContext';
 import { ThemeProvider } from './store/contexts/ThemeContext';
 
 //ThemeProvider App.js dosyasında en dışa sararsak içinde kaç adet child component varsa otomatik olarak state değişikliğini algılamış olur.
@@ -14,16 +17,21 @@ function App() {
   // arka plan regi seçilen temeaya göre değişsin diyoruz.
   return (
 
-    <ThemeProvider>
-      <div className="App" style={{color:'yellow'}} >
-        <UserProfilePage />
-        <Link to="about" >Hakkımızda</Link>
-      </div>
 
-      <Routes>
-        <Route path="/about" element={<div>About Page <Link to="/">Home</Link> </div>}></Route>
-      </Routes>
-    </ThemeProvider>
+    <CardProvider>
+      <ThemeProvider>
+        <div className="App" style={{ color: 'yellow' }} >
+          <UserProfilePage />
+          <Link to="about" >Hakkımızda</Link>
+          <Link to="cart-items" >Sepet İşlemleri</Link>
+        </div>
+
+        <Routes>
+          <Route path="/cart-items" element={<CardPage />}></Route>
+          <Route path="/about" element={<AboutPage />}></Route>
+        </Routes>
+      </ThemeProvider>
+    </CardProvider>
 
   );
 }
