@@ -28,9 +28,14 @@ function ThemeDropdown() {
 
   const selectTheme = (event) => {
     const selected = event.target.value;
-    console.log('selected',selected);
-    const selectedTheme = themes.find(x=> x.color == selected);
-    setTheme(selectedTheme); // context'deki theme güncelle
+
+    if(selected != "-1") {
+      console.log('selected',selected);
+      const selectedTheme = themes.find(x=> x.color == selected);
+      setTheme(selectedTheme); // context'deki theme güncelle
+    }
+
+
   }
 
   return <div>

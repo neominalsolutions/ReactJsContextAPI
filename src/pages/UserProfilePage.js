@@ -4,6 +4,7 @@ import ThemeContext from '../store/contexts/ThemeContext';
 
 function UserProfilePage() {
 
+    // ThemeDropdown da değişen state değerine UserProfilePage component içerisinden useContext kullanrak ulaştık.
     let {theme} = useContext(ThemeContext);
     console.log('theme', theme);
 
