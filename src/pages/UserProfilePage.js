@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import SelectedTheme from '../components/SelectedTheme';
 import ThemeDropdown from '../components/ThemeDropdown';
 import ThemeContext from '../store/contexts/ThemeContext';
 
@@ -15,6 +16,11 @@ function UserProfilePage() {
 
         <p>Tema Seçimi:
             <ThemeDropdown />
+        </p>
+
+        <p>
+            Tema ismi:
+            <SelectedTheme />
         </p>
 
     </div>;

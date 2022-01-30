@@ -7,7 +7,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({children}) => {
 
-    const [theme, setTheme] = useState({color:'black', name:'dark'});
+    const [theme, setTheme] = useState({color:'white', name:'light'});
     // seçili olan temamızı context state aldık.
 
     let values = {

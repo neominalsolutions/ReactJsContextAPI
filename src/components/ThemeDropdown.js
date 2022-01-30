@@ -21,8 +21,8 @@ function ThemeDropdown() {
       name:'blue'
     },
     {
-      color:'white',
-      name:'light'
+      color:'green',
+      name:'green'
     }
   ];
 
@@ -33,6 +33,8 @@ function ThemeDropdown() {
       console.log('selected',selected);
       const selectedTheme = themes.find(x=> x.color == selected);
       setTheme(selectedTheme); // context'deki theme güncelle
+    } else {
+      setTheme({color:'white',name:'white'})
     }
 
 
