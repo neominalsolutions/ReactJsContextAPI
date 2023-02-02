@@ -17,28 +17,29 @@ export const initailCardItems = []; // uygulama ilk açıldığında hiç bir se
 // Reducer ile state globalde değil localde güncellenir. Localde değişen bu state context ile aktif hale getirerek global state çekeriz.
 
 const CardReducer = (state, action) => {
+  console.log("action", action);
+  console.log("state", state);
 
-    console.log('action',action);
-    console.log('state',state);
+  // global state değerlerini güncelleyen yapılar. (state son hali ve actiondan göndeirlen payload bilgisi geliyor.)
 
+  //add("ITEM_ADD",{id:1,name:'kazak'})
 
-    switch (action.type) {
-      case "ITEM_ADD":
-          // push ile yeni item
+  switch (action.type) {
+    case "ITEM_ADD": // action Type
+      // push ile yeni item
 
-          state =  [... state,action.payload];
-        
-       return state; 
-      case "ITEM_REMOVE":
-          // filter işi
+      state = [...state, action.payload];
 
-          state = state.filter(x=> x.id != action.payload.id);
+      return state;
+    case "ITEM_REMOVE": // action Type
+      // filter işi
 
-          return state;
-      default:
-        return state;
-    }
-  };
-  
+      state = state.filter((x) => x.id != action.payload.id);
 
-  export default CardReducer;
+      return state;
+    default:
+      return state;
+  }
+};
+
+export default CardReducer;
